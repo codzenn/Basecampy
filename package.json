@@ -1,34 +1,28 @@
 {
-  "name": "project_management_platform",
+  "name": "project-management-platform",
   "version": "1.0.0",
-  "description": "a project management application",
-  "keywords": [
+  "description": "A project management platform inspired by Basecamp",
+  "private": true,
+  "workspaces": [
     "backend",
-    "API",
-    "creation"
+    "frontend"
   ],
-  "license": "ISC",
-  "author": "peeyush kumar",
-  "type": "module",
-  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "install-all": "npm install",
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "start": "npm run start --workspace=backend",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "project-management",
+    "basecamp",
+    "fullstack"
+  ],
+  "author": "Development Team",
+  "license": "MIT",
   "devDependencies": {
-    "nodemon": "^3.1.11",
-    "prettier": "3.8.0"
-  },
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "express-validator": "^7.3.1",
-    "jsonwebtoken": "^9.0.3",
-    "mailgen": "^2.0.32",
-    "mongoose": "^9.1.4",
-    "nodemailer": "^8.0.1"
+    "concurrently": "^8.2.2"
   }
 }
